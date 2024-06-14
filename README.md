@@ -21,6 +21,33 @@ The LockedMe File Management System is a Java-based console application designed
 
 ### 2. Sprints Overview
 
-- **Sprint 1**: Setup and Basic Functionality
+## Sprint 1: Setup and Basic Functionality
+**Duration:** 5 days
+
+### Tasks:
+- **Project Setup:**
+  - Initialize the project repository on GitHub.
+  - Set up the development environment in Eclipse.
+  - Create the basic project structure with appropriate packages.
+  - Configure build tools and dependencies (if any).
+
+- **Implement Main Menu and Navigation:**
+  - Create the main menu interface.
+  - Provide navigation options for displaying files, accessing business operations, and exiting the application.
+  - Ensure that user inputs are correctly read and processed.
+
+- **Implement List Files Functionality:**
+  - Create a method to list all files in the specified directory.
+  - Initially, sort files in ascending order (sorting will be optimized in Sprint 3).
+  - Ensure basic error handling for invalid user inputs.
+  - Display user-friendly error messages.
+
+- **Basic Error Handling:**
+  - Implement basic error handling for invalid user inputs.
+  - Ensure the application does not crash on invalid inputs.
+  - Display user-friendly error messages.
+
+---
+  
 - **Sprint 2**: Business Operations and File Management
 - **Sprint 3**: Optimization and Testing
