@@ -87,9 +87,8 @@ public class FileManagementSystem {
     }
 
     private static void closeApplication(Scanner scanner) {
-        System.out.println("Closing the application...");
+         System.out.println("Closing the application...");
         System.out.println("Thank you for using LockedMe File Management System!");
-        scanner.close();
         System.exit(0);
     }
 
@@ -97,9 +96,15 @@ public class FileManagementSystem {
         System.out.println("Listing the files in ascending order: ");
 
         File directory = new File(FILES_DIRECTORY);
+        
         String[] files = directory.list();
 
         if (files != null && files.length > 0) {
+            // Arrays.sort(files, String.CASE_INSENSITIVE_ORDER); 
+            // above in built function can be used to sort the files in case insensitve order.
+            
+            sortFilesCaseInsensitive(files);
+            
             for (String file : files) {
                 System.out.println(file);
             }
