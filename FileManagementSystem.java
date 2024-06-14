@@ -138,8 +138,30 @@ public class FileManagementSystem {
     }
 
     private static void searchFile(String fileName) {
-        File file = new File(FILES_DIRECTORY + fileName);
-        if (file.exists()) {
+        
+        File directory = new File(FILES_DIRECTORY);
+        File[] files = directory.listFiles();
+
+        // we can use the following inbuilt file.exists() function to check if file exists.
+        //     if (file.exists()) {
+        //         System.out.println("File found.");
+        //     } else {
+        //         System.out.println("File not found.");
+        //     }
+
+    
+        boolean fileFound = false;
+    
+        if (files != null) {
+            for (File file : files) {
+                if (file.getName().equals(fileName)) {
+                    fileFound = true;
+                    break;
+                }
+            }
+        }
+    
+        if (fileFound) {
             System.out.println("File found.");
         } else {
             System.out.println("File not found.");
