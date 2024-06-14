@@ -92,6 +92,25 @@ public class FileManagementSystem {
         System.exit(0);
     }
 
+     public static void sortFilesCaseInsensitive(String[] files) {
+        // implementing selection sort
+        int n = files.length;
+        for (int i = 0; i < n - 1; i++) {
+            // find the minimum element in unsorted array
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (files[j].compareToIgnoreCase(files[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+
+            // Swap the found minimum element with the first element
+            String temp = files[minIndex];
+            files[minIndex] = files[i];
+            files[i] = temp;
+        }
+    }
+
     private static void listFiles() {
         System.out.println("Listing the files in ascending order: ");
 
