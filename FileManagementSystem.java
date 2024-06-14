@@ -1,98 +1,146 @@
 import java.io.File;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+// import java.util.Arrays;
+// import java.util.HashMap;
 import java.util.Scanner;
 
-public class FileManagementSystem {
+public class original {
 
     private static final String currentLocation = System.getProperty("user.dir");
+
     private static final String FILES_DIRECTORY = currentLocation + "/files/";
 
+
     public static void main(String[] args) {
+       
         System.out.println("\nWelcome to LockedMe File Management System!");
         System.out.println("Application Name: LockedMe.com");
         System.out.println("Developed by: Ananya Sharma");
+    
+        while(true){
 
-        Scanner scanner = new Scanner(System.in);
-        try {
             while (true) {
-                System.out.println("\nMAIN MENU\nPlease select an option: ");
-                System.out.println("1. Show All Files");
-                System.out.println("2. Business Operations");
-                System.out.println("3. Exit Application");
-                System.out.print("Enter your choice: ");
+                Scanner scanner = new Scanner(System.in);
 
-                int option = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
+                System.out.println("\nMAIN MENU\nPlease select an option: \n1. Show All Files\n2. Business Operations \n3. Exit Application");
 
-                switch (option) {
-                    case 1:
-                        listFiles();
-                        break;
-                    case 2:
-                        businessOperations(scanner);
-                        break;
-                    case 3:
-                        closeApplication(scanner);
-                        return;
-                    default:
-                        System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                try {
+                    int option = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline character
+                    System.out.println("You entered: " + option);
+                    
+                    switch (option) {
+                        case 1:
+                            listFiles();
+                            break;
+                        case 2:
+                            businessOperations();
+                            break;
+                        case 3:
+                            scanner.close();
+                            closeApplication();
+                            return;
+                        default:
+                            System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                    }
+                    break; 
+
+
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid integer.");
+                    
+                } catch (NoSuchElementException e) {
+                    System.out.println("No more input available.");
+                    
+                } catch (IllegalStateException e) {
+                    System.out.println("Scanner is closed.");
+                    
                 }
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a valid integer.");
-        } finally {
-            scanner.close();
+        
         }
+
+       
     }
 
-    private static void businessOperations(Scanner scanner) {
-        try {
-            while (true) {
+    private static void businessOperations() {
+        
+
+        while (true) {
+            // this while loop doesn't end till it gets "return to main menu"
+
+            while(true){
+                // this while loop ends whenever any input is received.
+                // this is to keep the menu open until a choice is made.
+                
+
+                Scanner scanner = new Scanner(System.in);
                 System.out.println("\nFile Operations:");
                 System.out.println("1. Add a file");
                 System.out.println("2. Delete a file");
                 System.out.println("3. Search for a file");
                 System.out.println("4. Return to main menu");
+
                 System.out.print("Enter your choice: ");
 
-                int option = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
+                try {
+                    int option = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline character
+                    System.out.println("You entered: " + option);
+                            
+                    String fileName ="";
 
-                switch (option) {
-                    case 1:
-                        System.out.print("Enter file name to add: ");
-                        String fileName = scanner.nextLine();
-                        addFile(fileName);
-                        break;
-                    case 2:
-                        System.out.print("Enter file name to delete: ");
-                        String fileNameToDelete = scanner.nextLine();
-                        deleteFile(fileNameToDelete);
-                        break;
-                    case 3:
-                        System.out.print("Enter file name to search: ");
-                        String fileNameToSearch = scanner.nextLine();
-                        searchFile(fileNameToSearch);
-                        break;
-                    case 4:
-                        System.out.println("Returning to main menu...");
-                        return;
-                    default:
-                        System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                    switch (option) {
+                        case 1:
+                            System.out.print("Enter file name to add: ");
+                            fileName = scanner.nextLine();
+                            addFile(fileName);
+                            break;
+                        case 2:
+                            System.out.print("Enter file name to delete: ");
+                            fileName = scanner.nextLine();
+                            deleteFile(fileName);
+                            break;
+                        case 3:
+                            System.out.print("Enter file name to search: ");
+                            fileName = scanner.nextLine();
+                            searchFile(fileName);
+                            break;
+                        case 4:
+                            System.out.println("Returning to main menu...");
+                            return;
+                            
+                        default:
+                            System.out.println("Invalid choice. Please enter a number between 1 and 5.");
+                    }
+                    
+                    break; 
+
+
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid integer.");
+                    
+                } catch (NoSuchElementException e) {
+                    System.out.println("No more input available.");
+                    
+                } catch (IllegalStateException e) {
+                    System.out.println("Scanner is closed.");
+                    
                 }
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a valid integer.");
+           
         }
+
     }
 
-    private static void closeApplication(Scanner scanner) {
-         System.out.println("Closing the application...");
+    private static void closeApplication() {
+        System.out.println("Closing the application...");
         System.out.println("Thank you for using LockedMe File Management System!");
         System.exit(0);
     }
 
-     public static void sortFilesCaseInsensitive(String[] files) {
+    public static void sortFilesCaseInsensitive(String[] files) {
         // implementing selection sort
         int n = files.length;
         for (int i = 0; i < n - 1; i++) {
@@ -133,7 +181,9 @@ public class FileManagementSystem {
     }
 
     private static void addFile(String fileName) {
-        File file = new File(FILES_DIRECTORY + fileName);
+        
+        
+        File file = new File( FILES_DIRECTORY + fileName);
 
         try {
             if (file.createNewFile()) {
@@ -147,6 +197,7 @@ public class FileManagementSystem {
         }
     }
 
+    
     private static void deleteFile(String fileName) {
         File file = new File(FILES_DIRECTORY + fileName);
         if (file.delete()) {
@@ -155,6 +206,7 @@ public class FileManagementSystem {
             System.out.println("File not found.");
         }
     }
+    
 
     private static void searchFile(String fileName) {
         
@@ -186,4 +238,6 @@ public class FileManagementSystem {
             System.out.println("File not found.");
         }
     }
+    
+    
 }
