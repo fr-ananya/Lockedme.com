@@ -21,10 +21,12 @@ The LockedMe File Management System is a Java-based console application designed
 
 ### 2. Sprints Overview
 
-## Sprint 1: Setup and Basic Functionality
+### Sprint Overview for LockedMe Project
+
+### Sprint 1: Setup and Basic Functionality
 **Duration:** 5 days
 
-### Tasks:
+#### Tasks:
 - **Project Setup:**
   - Initialize the project repository on GitHub.
   - Set up the development environment in Eclipse.
@@ -48,6 +50,51 @@ The LockedMe File Management System is a Java-based console application designed
   - Display user-friendly error messages.
 
 ---
-  
-- **Sprint 2**: Business Operations and File Management
-- **Sprint 3**: Optimization and Testing
+
+### Sprint 2: Business Operations and File Management
+**Duration:** 5 days
+
+#### Tasks:
+- **Implement Add, Delete, and Search File Functionalities:**
+  - **Add File:** Create a method to add a new file to the directory.
+  - **Delete File:** Create a method to delete an existing file from the directory.
+  - **Search File:** Create a method to search for a specific file in the directory.
+
+- **Enhance Business Operations Menu:**
+  - Add options for add, delete, and search functionalities.
+  - Ensure smooth navigation between the business operations menu and the main menu.
+  - Provide clear prompts and feedback to the user.
+
+- **Advanced Error Handling and Validation:**
+  - Implement advanced error handling for file operations (e.g., handle file not found, file already exists, etc.).
+  - Validate user inputs to prevent invalid file names and operations.
+  - Ensure all exceptions are properly caught and handled with appropriate messages.
+
+---
+
+### Sprint 3: Optimization and Testing
+**Duration:** 5 days
+
+#### Tasks:
+- **Implement Sorting Algorithms:**
+  - Implement a custom case-insensitive sorting algorithm (e.g., selection sort) for listing files.
+  - Optimize the list files method to use the custom sorting algorithm and display files in sorted order.
+
+- **Optimize Code for Performance:**
+  - Review and refactor the code for better performance and readability.
+  - Optimize file operations to handle large directories efficiently.
+  - Ensure the application follows best practices and coding standards.
+
+- **Testing and Debugging:**
+  - Conduct thorough testing of all functionalities.
+  - Identify and fix bugs and issues.
+  - Test edge cases and validate the robustness of error handling.
+  - Perform user acceptance testing to ensure the application meets the specified requirements.
+
+- **Final Documentation:**
+  - Prepare the final project documentation, including a user manual.
+  - Document the code with comments and explanations.
+  - Update the README file with project details, setup instructions, and usage guidelines.
+  - Ensure all documentation is clear, concise, and comprehensive.
+
+
